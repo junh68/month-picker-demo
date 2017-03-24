@@ -55,11 +55,9 @@ DocReady(function () {
             return {}
         }
         , getInitialState() {
+            let now = new Date();
             return {
-                mvalue: {year: 2014, month: 11}
-                , mvalue2: {year: 2016, month: 7}
-                , mrange: {from: {year: 2014, month: 8}, to: {year: 2015, month: 5}}
-                , mrange2: {from: {year: 2013, month: 11}, to: {year: 2016, month: 3}}
+                mvalue: {year: now.getFullYear(), month: 1+now.getMonth()}
             }
         }
         , componentWillReceiveProps(nextProps){
