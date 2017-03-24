@@ -13,6 +13,14 @@
  *  - object: including array of months' texts and other display texts
  *      e.g. {from: "From:", to: "To:", months: [...]}
  * @theme: theme setting of month-picker; 2 options (light/dark); default theme is light
+ *
+ *
+ *
+ *  Copyright (c) 2017 nickeljew
+ *
+ * This software is released under the MIT License.
+ * http://opensource.org/licenses/mit-license.php
+ *
  */
 
 
