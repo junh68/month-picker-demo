@@ -27,8 +27,10 @@ DocReady(function () {
             let regex = /(\d{1,2})月\.\s*(\d{4})/
             let str = this.state.value
             let m = str.match(regex)
-            if (m)
-                str = str.replace(m[0], `${m[2]}年 ${m[1]}月`)
+            if (m) {
+                let month = ('00'+m[1]).slice( -2 );
+                str = str.replace(m[0], `${m[2]}/${month}`)
+            }
             return (str)
         }
 
@@ -84,14 +86,18 @@ DocReady(function () {
                 return '?'
             }
 
+            let numYears = 10
+            let currentYear = new Date().getFullYear()
+            let years = Array.from(Array(numYears).keys()).map(e => currentYear - (numYears-1-e))
+
             return (
                 <ul>
                     <li>
-                        <label><b>Month Pickerのデモ</b><span>(選択可能な年：2009以上、2017以下)</span></label>
+                        <label><b>Month Pickerのデモ</b><span>(今年を含む１０年前まで選択可能)</span></label>
                         <div className="edit">
                             <Picker
                                 ref="pickAMonth"
-                                years={[2009,2010,2011,2012,2013,2014,2015,2016,2017]}
+                                years={years}
                                 value={mvalue}
                                 lang={pickerLang.months}
                                 onChange={this.handleAMonthChange}
