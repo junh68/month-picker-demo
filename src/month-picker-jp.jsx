@@ -348,6 +348,7 @@ let MonthPickerJp = React.createClass({
             values[idx] = { year: year, month: month }
             this.setState({ values: values })
             this.props.onChange(year, month, idx)
+            this._onDismiss()
         }
     }
 
